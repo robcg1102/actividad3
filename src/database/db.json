@@ -1,0 +1,80 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "The waves are high & beautiful",
+      "description": "Meh synth Schlitz, termpo duis single-origin coffee wa next level etnic fingerstache fanny pack nostrud. Photo booth anum 8-bit hella",
+      "category": "Business",
+      "comments": [
+        {
+          "user": "Joe Doe",
+          "comment": "A great place"
+        },
+        {
+          "user": "John Cena",
+          "comment": "Lorem ipsum is simply"
+        },
+        {
+          "user": "Joe Doe",
+          "comment": "Lorem ipsum new comment"
+        }
+      ],
+      "urlImage": "https://www.popcomms.ae/wp-content/uploads/2019/09/Luxury-Travel-PR-Agency-1000x635.jpg"
+    },
+    {
+      "id": 2,
+      "title": "json-server",
+      "description": "typicode",
+      "category": "Travel",
+      "comments": [
+        {
+          "user": "Ken Robinson",
+          "comment": "Its a new comment"
+        }
+      ],
+      "urlImage": "https://www.lavanguardia.com/r/GODO/LV/p6/WebSite/2019/12/16/Recortada/img_mantigone_20191216-141315_imagenes_lv_terceros_istock-471263649-kQeG-U472261315627BAC-992x558@LaVanguardia-Web.jpg"
+    },
+    {
+      "id": 3,
+      "title": "json-server",
+      "description": "typicode",
+      "category": "Work",
+      "comments": [
+        {
+          "user": "Laura Barrett",
+          "comment": "Thanks for the info"
+        }
+      ],
+      "urlImage": "https://blog.centraldereservas.com/wp-content/uploads/2013/07/monta%C3%B1a-paisaje-atardecer-1024x684.jpg"
+    },
+    {
+      "id": 4,
+      "title": "The waves are high & beautiful",
+      "description": "Meh synth Schlitz, termpo duis single-origin coffee wa next level etnic fingerstache fanny pack nostrud. Photo booth anum 8-bit hella",
+      "category": "Travel",
+      "comments": [
+        {
+          "user": "Joe Doe",
+          "comment": "A great place"
+        },
+        {
+          "user": "John Cena",
+          "comment": "Lorem ipsum is simply"
+        },
+        {
+          "user": "John Cena",
+          "comment": "its a beautiful place to take a break"
+        },
+        {
+          "user": "Joe Doe",
+          "comment": "Awesome"
+        },
+        {
+          "user": "Joe Doe",
+          "comment": "A new comment"
+        }
+      ],
+      "urlImage": "https://www.popcomms.ae/wp-content/uploads/2019/09/Luxury-Travel-PR-Agency-1000x635.jpg"
+    }
+  ]
+}
