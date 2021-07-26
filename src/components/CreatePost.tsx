@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export default function CreatePost(props: any) {
-  const { control, handleSubmit } = useForm<IFormInput>();
+  const { control, handleSubmit, formState: {errors} } = useForm<IFormInput>();
 
   const [open, setOpen] = useState(false);
 
@@ -64,6 +64,10 @@ export default function CreatePost(props: any) {
     setCategory(event.target.value as string);
   };
 
+  const submitHandler = (data: any) => {
+    console.log('submit', data)
+  }
+
   return (
     <div className="createPost">
       <Button
@@ -79,64 +83,70 @@ export default function CreatePost(props: any) {
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
+        <form onSubmit={handleSubmit(submitHandler)}>
         <DialogTitle id="form-dialog-title">Create Post</DialogTitle>
         <DialogContent>
-          <Controller
-            name="title"
-            control={control}
-            defaultValue=""
-            rules={{ required: true, maxLength: 5 }}
-            render={({ field }) => <Input {...field} />}
-          />
+            <Controller
+              name="title"
+              control={control}
+              defaultValue=""
+              rules={{ required: true, maxLength: 2 }}
+              render={({ field }) => <Input {...field} />}
+            />
 
-          <TextField
-            margin="dense"
-            id="name"
-            label="Description"
-            type="text"
-            fullWidth
-          />
-          <div>
-            <FormControl className={classes.formControl} fullWidth>
-              <InputLabel id="demo-controlled-open-select-label">
-                Category
-              </InputLabel>
-              <Select
-                labelId="demo-controlled-open-select-label"
-                id="demo-controlled-open-select"
-                open={openSelect}
-                onClose={handleCloseSelect}
-                onOpen={handleOpenSelect}
-                value={category}
-                onChange={handleChangeSelect}
-              >
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                <MenuItem value={"Travel"}>Travel</MenuItem>
-                <MenuItem value={"Lifestyle"}>Lifestyle</MenuItem>
-                <MenuItem value={"Business"}>Business</MenuItem>
-                <MenuItem value={"Food"}>Food</MenuItem>
-                <MenuItem value={"Work"}>Work</MenuItem>
-              </Select>
-            </FormControl>
-          </div>
-          <TextField
-            margin="dense"
-            id="name"
-            label="URL of the image"
-            type="text"
-            fullWidth
-          />
+            {errors?.title?.type === 'maxLength' && "Title is max lenght 2" }
+            {(errors?.title?.type) === 'required' && "is required" }
+
+            <TextField
+              margin="dense"
+              id="name"
+              label="Description"
+              type="text"
+              fullWidth
+            />
+            <div>
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel id="demo-controlled-open-select-label">
+                  Category
+                </InputLabel>
+                <Select
+                  labelId="demo-controlled-open-select-label"
+                  id="demo-controlled-open-select"
+                  open={openSelect}
+                  onClose={handleCloseSelect}
+                  onOpen={handleOpenSelect}
+                  value={category}
+                  onChange={handleChangeSelect}
+                >
+                  <MenuItem value="">
+                    <em>None</em>
+                  </MenuItem>
+                  <MenuItem value={"Travel"}>Travel</MenuItem>
+                  <MenuItem value={"Lifestyle"}>Lifestyle</MenuItem>
+                  <MenuItem value={"Business"}>Business</MenuItem>
+                  <MenuItem value={"Food"}>Food</MenuItem>
+                  <MenuItem value={"Work"}>Work</MenuItem>
+                </Select>
+              </FormControl>
+            </div>
+            <TextField
+              margin="dense"
+              id="name"
+              label="URL of the image"
+              type="text"
+              fullWidth
+              />
+            
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button  color="primary" type="submit" disabled={errors?.title && true}>
             Create
           </Button>
         </DialogActions>
+        </form>
       </Dialog>
     </div>
   );
